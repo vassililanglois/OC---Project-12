@@ -1,0 +1,7 @@
+.activity-button {
+  @include flex-center;
+  background-color: $background-color;
+  height: 64px;
+  width: 64px;
+  border-radius: 6px;
+}

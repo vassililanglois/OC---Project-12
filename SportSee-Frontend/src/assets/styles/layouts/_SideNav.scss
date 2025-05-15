@@ -1,0 +1,28 @@
+.sidenav {
+  background-color: $secondary-color;
+  height: 100%;
+  width: 117px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+
+  .activity-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  p {
+    color: $tertiairy-color;
+    white-space: nowrap;
+    transform: rotate(270deg);
+    justify-self: flex-start;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 150px;
+  }
+}
