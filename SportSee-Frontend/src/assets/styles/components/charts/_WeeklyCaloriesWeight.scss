@@ -1,0 +1,47 @@
+.weekly-calories-weigth {
+  width: 835px;
+  height: 320px;
+  .chart-infos {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 50px;
+
+    h2 {
+      font-size: 15px;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 30px;
+
+      .legend-color {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .legend-text {
+        color: $secondary-text-color;
+      }
+
+      .legend-weight {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .legend-color {
+          background-color: $secondary-color;
+        }
+      }
+
+      .legend-calories {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .legend-color {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}

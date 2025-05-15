@@ -1,6 +1,6 @@
 .sidenav {
   background-color: $secondary-color;
-  height: 100%;
+  height: calc(100% - 91px);
   width: 117px;
   left: 0;
   display: flex;
@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  position: relative;
+  position: absolute;
 
   .activity-buttons {
     display: flex;

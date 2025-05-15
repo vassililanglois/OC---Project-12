@@ -13,10 +13,17 @@
 // Styles des composants
 
 @import "./components/ui/ActivityButton";
+@import "./components/ui/NutritionCard";
+
+@import "./components/charts/WeeklyCaloriesWeight";
+@import "./components/charts/AverageSessions";
+@import "./components/charts/PerformanceRadar";
+@import "./components/charts/Score";
 
 // Styles des layouts
-
 @import "./layouts/TopNav";
 @import "./layouts/SideNav";
 
 // Styles des pages
+
+@import "./pages/Dashboard";

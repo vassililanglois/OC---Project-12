@@ -1,0 +1,28 @@
+.score {
+  width: 258px;
+  height: 263px;
+  border-radius: 5px;
+  position: relative;
+  h2 {
+    font-size: 15px;
+    position: absolute;
+    top: 24px;
+    left: 30px;
+  }
+
+  .score-text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .score-value {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .score-subtext {
+      color: #74798c;
+    }
+  }
+}
