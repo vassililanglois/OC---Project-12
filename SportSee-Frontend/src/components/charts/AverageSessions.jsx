@@ -1,19 +1,55 @@
 import { LineChart, Tooltip, Line, ResponsiveContainer, XAxis } from "recharts";
-import mockAverageSessions from "../../mocks/mockAverageSessions";
+import { convertDayNumberToLetter } from "../../services/dataFormatting";
 
-function AverageSessions() {
-  // Données de base
-  const baseData = mockAverageSessions.data.sessions.map((session) => ({
-    Day: session.day,
+/**
+ * React component to display the user's average sessions length in a week as a line chart.
+ *
+ * @returns {JSX.Element}
+ *
+ * @description
+ * This component uses data to display the user's weekly average sessions length as numbers in a line chart.
+ * It leverages the Recharts library to render the line chart.
+ */
+
+// Personnalisation du Tooltip
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload) {
+    const time = payload.find(
+      (item) => item.dataKey === "SessionLength"
+    )?.value;
+
+    return (
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          color: "#000000",
+          padding: "10px",
+          fontSize: "8px",
+        }}
+      >
+        <p style={{ margin: 0 }}>{`${time}min`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
+function AverageSessions({ averageSessions }) {
+  // On adapte la structure pour le graphique
+  const baseData = (averageSessions.sessions || []).map((session) => ({
+    Day: convertDayNumberToLetter(session.day),
     SessionLength: session.sessionLength,
   }));
 
-  // Ajout des points fantômes aux extrémités
-  const data = [
-    { Day: "", SessionLength: baseData[0].SessionLength },
-    ...baseData,
-    { Day: "", SessionLength: baseData[baseData.length - 1].SessionLength },
-  ];
+  // Ajout des points fantômes aux extrémités pour l'effet visuel
+  const data = baseData.length
+    ? [
+        { Day: "", SessionLength: baseData[0].SessionLength },
+        ...baseData,
+        { Day: "", SessionLength: baseData[baseData.length - 1].SessionLength },
+      ]
+    : [];
 
   return (
     <div className="average-sessions">
@@ -25,7 +61,6 @@ function AverageSessions() {
           data={data}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
         >
-          {/* Dégradé */}
           <defs>
             <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="white" stopOpacity={0.4} />
@@ -33,7 +68,6 @@ function AverageSessions() {
             </linearGradient>
           </defs>
 
-          {/* Axe X sans ligne, sans tick line */}
           <XAxis
             dataKey="Day"
             axisLine={false}
@@ -43,17 +77,7 @@ function AverageSessions() {
             padding={{ left: 0, right: 0 }}
           />
 
-          {/* Tooltip stylé */}
-          <Tooltip
-            contentStyle={{
-              backgroundColor: "white",
-              color: "black",
-              border: "none",
-              fontSize: "12px",
-            }}
-            labelStyle={{ display: "none" }}
-            cursor={false}
-          />
+          <Tooltip content={<CustomTooltip />} cursor={false} />
 
           {/* Ligne en dégradé */}
           <Line

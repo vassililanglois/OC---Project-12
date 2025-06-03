@@ -1,19 +1,27 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
-import mockUserInfos from "../../mocks/mockUserInfos";
+import { converToPercent } from "../../services/dataFormatting";
 
-function Score() {
-  const score = mockUserInfos.data.todayScore || mockUserInfos.data.score;
+/**
+ * React component to display the user's score as a radial chart.
+ *
+ * @returns {JSX.Element}
+ *
+ * @description
+ * This component uses data to display the user's current score as a percentage.
+ * It leverages the Recharts library to render the radial chart.
+ */
 
+function Score({ score }) {
   const data = [
     {
       name: "score",
-      value: score * 100, // par ex. 80
+      value: score * 100,
       fill: "#FF0000",
     },
     {
       name: "max",
       value: 100,
-      fill: "none", // ou "transparent", pour qu’elle ne soit pas visible
+      fill: "none",
     },
   ];
 
@@ -34,7 +42,7 @@ function Score() {
       </ResponsiveContainer>
 
       <div className="score-text">
-        <p className="score-value">{score * 100}%</p>
+        <p className="score-value">{converToPercent(score)}</p>
         <p className="score-subtext">
           de votre <br />
           objectif

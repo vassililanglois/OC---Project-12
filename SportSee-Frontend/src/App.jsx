@@ -1,13 +1,18 @@
+import { Routes, Route } from "react-router-dom";
 import SideNav from "./layouts/SideNav";
 import TopNav from "./layouts/TopNav";
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <>
       <TopNav />
       <SideNav />
-      <Dashboard name="Thomas" />
+      <Routes>
+        <Route path="/user/:id" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }
