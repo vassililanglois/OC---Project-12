@@ -1,10 +1,12 @@
 .nutrition-card {
+  background-color: $component-background-color;
   display: flex;
-
   padding: 32px;
+  max-height: 124px;
 
-  height: 124px;
-  width: 258px;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
 
   .nutrition-icon {
     width: 60px;

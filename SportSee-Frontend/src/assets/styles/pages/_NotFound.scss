@@ -1,0 +1,16 @@
+.not-found {
+  width: 100vw;
+  height: 100vh;
+  padding-left: 117px;
+  padding-bottom: 91px;
+  @include flex-center;
+  flex-direction: column;
+  h1 {
+    font-size: 8rem;
+    color: $primary-color;
+  }
+  p {
+    font-size: 2rem;
+    color: $primary-color;
+  }
+}

@@ -1,6 +1,6 @@
 .score {
-  width: 258px;
-  height: 263px;
+  flex: 1;
+
   border-radius: 5px;
   position: relative;
   h2 {
@@ -17,12 +17,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     .score-value {
-      font-size: 26px;
+      font-size: clamp(20px, 2vw, 26px);
       font-weight: 700;
     }
 
     .score-subtext {
       color: #74798c;
+      font-size: clamp(12px, 1vw, 16px);
     }
   }
 }

@@ -1,6 +1,13 @@
 .performance-radar {
-  background-color: $secondary-color;
-  width: 258px;
-  height: 263px;
+  background-color: #282d30;
+
+  flex: 1;
   border-radius: 5px;
+  position: relative;
+
+  .corner-label {
+    position: absolute;
+    color: $tertiairy-color;
+    transform: translate(-50%, -50%);
+  }
 }

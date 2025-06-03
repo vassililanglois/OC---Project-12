@@ -1,7 +1,7 @@
 .average-sessions {
   background-color: $primary-color;
-  width: 258px;
-  height: 263px;
+
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -10,9 +10,10 @@
 
   .title {
     position: absolute;
-    top: 30px;
-    left: 30px;
+    padding-right: 10%;
+    top: 10%;
+    left: 10%;
     color: rgba($tertiairy-color, 0.5);
-    font-size: 15px;
+    font-size: clamp(12px, 1vw, 15px);
   }
 }
