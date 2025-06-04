@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Nutrition from "../components/ui/NutritionCard";
 import calorieIcon from "../assets/icons/calories-icon.png";
@@ -22,6 +22,7 @@ import {
  */
 
 function Home() {
+  const navigate = useNavigate();
   // Extract the user ID from the URL
   const { id } = useParams();
   const userId = Number(id);
@@ -34,10 +35,14 @@ function Home() {
 
   // Fetch all user data on component mount
   useEffect(() => {
-    getUserInformations(userId).then((data) => {
-      console.log("userInfos retourné :", data.data || data); // Affiche l'objet dans la console
-      setUserInfos(data.data || data);
-    });
+    getUserInformations(userId)
+      .then((data) => {
+        setUserInfos(data.data || data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigate("/404", { replace: true });
+      });
     getUserActivityInformations(userId).then((data) => {
       console.log("userActivity retourné :", data.data || data); // Affiche l'objet dans la console
       setUserActivity(data.data || data);
@@ -50,7 +55,7 @@ function Home() {
       console.log("userPerformance retourné :", data.data || data); // Affiche l'objet dans la console
       setUserPerformance(data.data || data);
     });
-  }, [userId]);
+  }, [userId, navigate]);
 
   return (
     <div className="home">
