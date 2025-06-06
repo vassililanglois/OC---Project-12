@@ -9,6 +9,7 @@
  */
 
 import ActivityButton from "../components/ui/ActivityButton";
+
 import yogaIcon from "../assets/icons/yoga-icon.png";
 import swimmingIcon from "../assets/icons/swimming-icon.png";
 import cyclingIcon from "../assets/icons/cycling-icon.png";

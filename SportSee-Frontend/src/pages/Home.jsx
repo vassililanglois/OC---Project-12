@@ -1,14 +1,17 @@
 import { useParams, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Nutrition from "../components/ui/NutritionCard";
+
 import calorieIcon from "../assets/icons/calories-icon.png";
 import proteinIcon from "../assets/icons/protein-icon.png";
 import carbIcon from "../assets/icons/carbs-icon.png";
 import lipidIcon from "../assets/icons/fat-icon.png";
+
+import Nutrition from "../components/ui/NutritionCard";
 import WeeklyCaloriesWeigth from "../components/charts/WeeklyCaloriesWeight";
 import AverageSessions from "../components/charts/AverageSessions";
 import PerformanceRadar from "../components/charts/PerformanceRadar";
 import Score from "../components/charts/Score";
+
 import {
   getUserAverageSessions,
   getUserInformations,
